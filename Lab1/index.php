@@ -5,19 +5,14 @@ $username = "root";
 $password = "root";
 
 
-
 // Create connection
 $conn = new mysqli($servername, $username, $password);
 
 
-
 // Check connection
 if ($conn->connect_error) {
-
   die("Connection failed: " . $conn->connect_error);
-
 }
-
 echo "Connected successfully";
 ?>
 
@@ -33,8 +28,9 @@ echo "Connected successfully";
     <title>Lab1</title>+
 </head>
 <body>
+<h1>Lab Assignment 1</h1>
 <div class="grid-container">
-  <div class="grid-item">1</div>
+  <div class="grid-item">Lab1</div>
   <div class="grid-item">2</div>
   <div class="grid-item">3</div>
   <div class="grid-item">4</div>
@@ -44,6 +40,5 @@ echo "Connected successfully";
   <div class="grid-item">8</div>
   <div class="grid-item">9</div>
 </div>
-    <h1>Lab Assignment 1</h1>
 </body>
 </html>

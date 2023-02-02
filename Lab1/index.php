@@ -10,26 +10,6 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 
 
 // Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
-
-
-$sql = "SELECT id FROM tasks";
-$result = $conn->query($sql);
-
-if ($result -> num_rows > 0) {
-  // output data of each row
-  while ($row = mysqli_fetch_assoc($result)) {
-    echo "id: " . $row["id"];
-    echo "<p> id: ". $row["id"]. " description: ". $row["description"]. "</p>";
-  }
-} else {
-  echo "0 to dos results";
-}
-
-mysqli_close($conn);
 ?>
 
 
@@ -47,7 +27,28 @@ mysqli_close($conn);
 
 <body>
   <h1>Lab Assignment 1</h1>
+ <?php
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
 
+
+$sql = "SELECT * FROM tasks";
+$result = $conn->query($sql);
+
+if ($result -> num_rows > 0) {
+  // output data of each row
+  while ($row = mysqli_fetch_assoc($result)) {
+    echo "id: " . $row["id"];
+    echo "<p> title: ". $row["title"]. " description: ". $row["description"]. "</p>";
+  }
+} else {
+  echo "0 to dos results";
+}
+
+mysqli_close($conn);
+ ?>
 </body>
 
 </html>

@@ -14,7 +14,7 @@ $make = $_POST["title"];
 $model = $_POST["description"];
 
 // Send post data to DB
-$query = "INSERT INTO cars (make, model) VALUES (?, ?)"; // Create the query (command) for the database
+$query = "INSERT INTO tasks (task, description) VALUES (?, ?)"; // Create the query (command) for the database
 $stmt = $conn->prepare($query); // Prepare the query for execution
 $stmt->bind_param("ss", $make, $model); // Add values to query
 

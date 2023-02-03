@@ -5,14 +5,11 @@ $username = "root";
 $password = "root";
 $dbname = "todo_application";
 
-// Create connection
+// Create connection to database 
 $conn = new mysqli($servername, $username, $password, $dbname);
-
-
-// Check connection
 ?>
 
-
+------------------------------------------------------------------------------------------
 <!DOCTYPE html>
 <html lang="en">
 

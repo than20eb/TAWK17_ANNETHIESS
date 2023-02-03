@@ -1,12 +1,5 @@
 <?php
-
- //Connecting to Database where Information are saved in
-$conn = new mysqli("localhost", "todo_application", "", "tasks");
-
-// Check up: If connection to Database is missing
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'connecttodatabase';
 
 
 // Get data: tasks

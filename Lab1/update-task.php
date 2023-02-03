@@ -1,13 +1,5 @@
 <?php
-// Connect to DB
-// Create connection
-$conn = new mysqli("localhost", "todo_application", "", "tasks");
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-
+include 'connecttodatabase';
 
 
 
@@ -32,3 +24,4 @@ if($success){
 else{
     echo "Error";
 } 
+?>

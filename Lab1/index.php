@@ -7,9 +7,18 @@ $dbname = "todo_application";
 
 // Create connection to database 
 $conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+echo "Connected successfully";
+
+$sql = "SELECT * FROM tasks";
+$result = $conn->query($sql);
+
 ?>
 
-------------------------------------------------------------------------------------------
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,21 +28,13 @@ $conn = new mysqli($servername, $username, $password, $dbname);
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="lab1.js"></script>
   <link rel="stylesheet" href="lab1.css">
-  <title>Lab1</title>+
+  <title>Lab1</title>
 </head>
 
 <body>
   <h1>Lab Assignment 1</h1>
+
  <?php
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-echo "Connected successfully";
-
-
-$sql = "SELECT * FROM tasks";
-$result = $conn->query($sql);
-
 if ($result -> num_rows > 0) {
   // output data of each row
   while ($row = mysqli_fetch_assoc($result)) {

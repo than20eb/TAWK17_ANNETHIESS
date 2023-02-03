@@ -2,7 +2,7 @@
 
 // Connect to DB
 // Create connection
-$conn = new mysqli("localhost", "root", "", "ju_cars");
+$conn = new mysqli("localhost", "todo_applications", "", "tasks");
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -16,7 +16,7 @@ $model = $_POST["model"];
 
 
 // Send post data to DB
-$query = "UPDATE cars SET make = ?, model = ? WHERE id = ?";
+$query = "UPDATE tasks SET make = ?, model = ? WHERE id = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("ssi", $make, $model, $id);
 

@@ -8,9 +8,40 @@ body {
 }
 
 h1 {
-    color: rgb(176, 176, 195);
+    color: rgb(255, 255, 255);
     margin: 20px;
     font-size: 60px;
     font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
   }
  
+
+h2 {
+  color: rgb(176, 176, 195);
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: rgb(222, 222, 222);
+  text-align: center;
+}
+
+div {
+  margin: auto;
+
+  width: 50%;
+  padding: 10px;
+  background-color: aqua, 50%;
+}
+
+#new-task {
+  background-color: hsl(0, 0%, 42%);
+  margin: 20%;
+  border-radius: 10%;
+}
+
+.create-task-container{
+  background-color: hsl(0, 0%, 82%);
+}

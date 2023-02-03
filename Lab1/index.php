@@ -31,21 +31,28 @@ $result = $conn->query($sql);
 </head>
 
 <body>
-  <h1>Lab Assignment 1</h1>
+  <div class= "Task-container">
+  <h1>My Weekly Tasks</h1>
+  <ul>
+    <?php
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while ($row = mysqli_fetch_assoc($result)) {
+        echo "id: " . $row["id"];
+        echo "<p> title: " . $row["title"] . " description: " . $row["description"] . "</p>";
+      }
+    } else {
+      echo "0 to dos results";
+    }
 
- <?php
-if ($result -> num_rows > 0) {
-  // output data of each row
-  while ($row = mysqli_fetch_assoc($result)) {
-    echo "id: " . $row["id"];
-    echo "<p> title: ". $row["title"]. " description: ". $row["description"]. "</p>";
-  }
-} else {
-  echo "0 to dos results";
-}
+    mysqli_close($conn);
+    ?>
+  </ul>
+    <button id="new-task">
+      <div vlass="tab new-task-tab"><div class="close" onclick="hideNewTask()> </div> <h2>New Note</h2> </div>
+    <?php include "new-task.php" ?>
 
-mysqli_close($conn);
- ?>
+  </div>
 </body>
 
 </html>

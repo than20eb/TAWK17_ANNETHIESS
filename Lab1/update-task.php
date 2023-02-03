@@ -1,10 +1,6 @@
 <?php
 include 'connecttodatabase';
 
-
-
-
-
 // Get post data
 $id = $_POST["id"];
 $title = $_POST ["title"];

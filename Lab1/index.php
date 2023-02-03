@@ -1,5 +1,4 @@
 <?php
-
 $servername = "localhost";
 $username = "root";
 $password = "root";
@@ -14,7 +13,6 @@ if ($conn->connect_error) {
 
 $sql = "SELECT * FROM tasks";
 $result = $conn->query($sql);
-
 ?>
 
 
@@ -31,28 +29,24 @@ $result = $conn->query($sql);
 </head>
 
 <body>
-  <div class= "Task-container">
-  <h1>My Weekly Tasks</h1>
-  <ul>
-    <?php
-    if ($result->num_rows > 0) {
-      // output data of each row
-      while ($row = mysqli_fetch_assoc($result)) {
-        echo "id: " . $row["id"];
-        echo "<p> title: " . $row["title"] . " description: " . $row["description"] . "</p>";
+  <div class="Task-container">
+    <h1>My Weekly Tasks</h1>
+    <ul>
+      <?php
+      if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo "<p>Task Nr " . $row["id"] . "</p>";
+          echo "<p> title: " . $row["title"] . " description: " . $row["description"] . "</p>";
+        }
+      } else {
+        echo "0 to dos results";
       }
-    } else {
-      echo "0 to dos results";
-    }
+      mysqli_close($conn);
+      ?>
 
-    mysqli_close($conn);
-    ?>
-  </ul>
-    <button id="new-task">
-      <div vlass="tab new-task-tab"><div class="close" onclick="hideNewTask()> </div> <h2>New Note</h2> </div>
-    <?php include "new-task.php" ?>
-
-  </div>
+    </ul>
+      <?php include 'new-task.php'; ?>
 </body>
 
 </html>

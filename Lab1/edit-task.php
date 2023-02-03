@@ -1,14 +1,6 @@
 <?php
+include 'connecttodatabase';
 
- //Connecting to Database where Information are saved in
- $conn = new mysqli("localhost", "todo_application", "", "tasks");
- // Check up: If connection to Database is missing
- if ($conn->connect_error) {
-     die("Connection failed: " . $conn->connect_error);
- }
-
-
- 
 // prepare and bind
 $stmt = $conn->prepare("SELECT * FROM tasks WHERE id=?");
 $stmt->bind_param("i", $_GET["id"]);
@@ -17,9 +9,6 @@ $stmt->execute();
 $result = $stmt->get_result();
 $task = $result->fetch_assoc();
 ?>
-
-
-
 
 
 

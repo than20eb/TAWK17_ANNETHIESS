@@ -1,5 +1,4 @@
 <?php
-
 // Connect to DB
 // Create connection
 $conn = new mysqli("localhost", "todo_application", "", "tasks");
@@ -9,15 +8,21 @@ if ($conn->connect_error) {
 }
 
 
+
+
+
+
+
 // Get post data
 $id = $_POST["id"];
-$make = $_POST["make"];
-$model = $_POST["model"];
+$title = $_POST ["title"];
+$description = $_POST["description"];
+$status = $_POST["status"];
 
 // Send post data to DB
-$query = "UPDATE tasks SET make = ?, model = ? WHERE id = ?";
+$query = "UPDATE tasks SET title = ?, description = ?, status = ? WHERE id = ?";
 $stmt = $conn->prepare($query);
-$stmt->bind_param("ssi", $make, $model, $id);
+$stmt->bind_param("ssi", $title, $description, $status, $id);
 
 $success = $stmt->execute();
 

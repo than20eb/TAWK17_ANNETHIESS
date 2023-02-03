@@ -10,8 +10,8 @@ if ($conn->connect_error) {
 
 
 // Get data: tasks
-$make = $_POST["title"];
-$model = $_POST["description"];
+$title = $_POST["title"];
+$description = $_POST["description"];
 
 // Send post data to DB
 $query = "INSERT INTO tasks (task, description) VALUES (?, ?)"; // Create the query (command) for the database
@@ -27,3 +27,4 @@ if($success){
 else{
     echo "Error";
 }
+?>

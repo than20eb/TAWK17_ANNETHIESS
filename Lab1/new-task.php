@@ -11,8 +11,11 @@
     <h1>Create a new task</h1>
     
     <form action="create-task.php" method="post">
-        <input type="text" name="make" placeholder="Make"> <br>
-        <input type="text" name="model" placeholder="Model"> <br>
+        <label>Task:</label><br>
+        <input type="text" name="title" value =""> <br>
+
+        <input type="text" name="description" value=""> <br>
+
         <input type="submit" value="Save">
     </form>
     <script src="script.js"></script>

@@ -1,10 +1,11 @@
+<!-------------------------------------------CREATE CONNECTION TO DATABASE AND FETCH TASK DATA---------------------------------------------->
 <?php
 $servername = "localhost";
 $username = "root";
 $password = "root";
 $dbname = "todo_application";
 
-// Create connection to database 
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
@@ -15,7 +16,7 @@ $sql = "SELECT * FROM tasks";
 $result = $conn->query($sql);
 ?>
 
-
+<!-------------------------------------------INDEX HTML---------------------------------------------------->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,10 +30,19 @@ $result = $conn->query($sql);
 </head>
 
 <body>
+  <div id="bodycontainer">
   <div class="Task-container">
     <h1>My Weekly Tasks</h1>
-    <ul>
+    <nav>
+        <button class="newTaskButton" onclick="addNewTask()">+</button>
+    </nav>
+</div>
+
+    <div class="main">
       <?php
+      $sql = "SELECT * FROM tasks";
+      $result = $conn->query($sql);
+      
       if ($result->num_rows > 0) {
         // output data of each row
         while ($row = mysqli_fetch_assoc($result)) {
@@ -44,9 +54,41 @@ $result = $conn->query($sql);
       }
       mysqli_close($conn);
       ?>
-
     </ul>
       <?php include 'new-task.php'; ?>
-</body>
+      </table>
+</div>
 
+<script type="text/javascript">
+    function addNewTask() {
+        console.log("add new task function");
+        location.href = "new-task.php";
+    }
+
+    function editTask(id) {
+        location.href = "http://localhost:8888/lab1/edit-task.php?id=" + id;
+    }
+</script>
+
+<!-------------------------------------------ANIMATED BACKGROUND---------------------------------------------------->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"></script>
+<script>
+VANTA.CELLS({
+  el: '#bodycontainer',
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  color1: 0xff008e,
+  color2: 0xf2af35,
+  size: 2.70,
+  speed: 0.60
+})
+</script>
+</div>
+</body>
 </html>

@@ -1,8 +1,10 @@
 <?php
+//Give attributes to look for right database
     $servername = "localhost";
     $username = "root";
     $password = "root";
     $dbname = "todo_application";
+
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
 

@@ -13,6 +13,7 @@ $stmt->bind_param("ss", $make, $model); // Add values to query
 $success = $stmt->execute(); // Execute command / query
 
 // Redirect user to index.php
+
 if($success){
     header("location: index.php");
 }
@@ -36,7 +37,7 @@ else{
     if ($conn->query($sql) === TRUE) {
         header("Location:index.php");
     } else {
-        echo "<br> Error: " . $sql . "<br>" . $conn->error;
+        echo "<br> Error: " . $sql . "<br>" . $conn-> error;
     }
 
     ?>

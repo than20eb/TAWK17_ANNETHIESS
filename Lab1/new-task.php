@@ -54,6 +54,25 @@
       location.href = "index.php";
     }
   </script>
+<!-----------------------------------Animated Background------------------------------------------------------------------------>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"></script>
+<script>
+VANTA.CELLS({
+  el: "#bodycontainer",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  color1: 0xff008e,
+  color2: 0xf2af35,
+  size: 1.70,
+  speed: 1.10
+})
+</script>
+</div>
 </body>
 
 </html>

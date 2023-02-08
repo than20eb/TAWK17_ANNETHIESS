@@ -37,7 +37,7 @@ else{
     if ($conn->query($sql) === TRUE) {
         header("Location:index.php");
     } else {
-        echo "<br> Error: " . $sql . "<br>" . $conn-> error;
+        echo "<br> Error: " . $sql . "<br>" . $conn->error;
     }
 
     ?>

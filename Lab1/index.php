@@ -80,7 +80,7 @@
         }
 
         function editTask(id) {
-            location.href = "http://localhost:8888/lab1/edit-task.php?id=";
+            location.href = "http://localhost:8888/lab1/edit-task.php?id=" + id;
         }
     </script>
 

@@ -14,39 +14,25 @@ h1 {
   display: inline;
   text-align: center;
   padding: 2vw;
-  color: rgb(255, 255, 255);
+  color: rgb(203, 255, 33);
   margin: 20px;
   font-size: 50px;
-  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
-}
-
-.newTaskButton {
-  font-size: 40px;
 }
 
 .tableContainer {
   background-color: white;
-  border: 5px solid black;
+  border-radius: 1%;
+  border: 5px solid rgb(255, 157, 0);
   margin: 10vw;
   margin-top: 0;
   padding: 8vw;
 }
-  .tableContainer {
-    margin: 5vw;
-    margin-top: 0;
-    padding: 5vw;
-  }
 
 .tableContainer .tableItem {
   padding: 5%;
   padding-left: 0;
 }
-  .tableContainer .tableItem {
-    font-size: 12px;
-    padding: 2vw;
-    padding-left: 0;
-  }
 
 .tableContainer .tableDescription {
   width: 30vw;
@@ -57,16 +43,13 @@ h1 {
   font-size: 24px;
   padding-bottom: 5%;
 }
-  .tableContainer .tableHeader {
-    font-size: 16px;
-  }
 
 .tableButton {
   font-size: 16px;
   border-radius: 8px;
   border: none;
   padding: 10px;
-  background-color: lightseagreen;
+  background-color: rgb(255, 157, 0);
   color: white;
   cursor: pointer;
 }
@@ -85,11 +68,10 @@ nav {
   display: inline;
   border-radius: 8px;
   border: none;
-  padding: 5px;
-  background-color: darkcyan;
+  padding: 2vw;
+  background-color: rgb(255, 157, 0);
   color: white;
   margin: 2vw;
-  padding: 2vw;
   box-sizing: border-box;
 }
 

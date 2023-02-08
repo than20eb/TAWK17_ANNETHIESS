@@ -1,52 +1,100 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "root";
-$dbname = "todo_application";
-
-// Create connection to database 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-$sql = "SELECT * FROM tasks";
-$result = $conn->query($sql);
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="lab1.js"></script>
-  <link rel="stylesheet" href="lab1.css">
-  <title>Lab1</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Document</title>
 </head>
 
 <body>
-  <div class="Task-container">
-    <h1>My Weekly Tasks</h1>
-    <ul>
-      <?php
-      if ($result->num_rows > 0) {
-        // output data of each row
-        while ($row = mysqli_fetch_assoc($result)) {
-          echo "<p>Task Nr " . $row["id"] . "</p>";
-          echo "<p> title: " . $row["title"] . " description: " . $row["description"] . "</p>";
-        }
-      } else {
-        echo "0 to dos results";
-      }
-      mysqli_close($conn);
-      ?>
+    <header>
+        <h1>Tasks</h1>
+    </header>
+    <nav>
+        <button class="newTaskButton" onclick="addNewTask()">+</button>
+    </nav>
+    <main>
+        <?php
 
-    </ul>
-      <?php include 'new-task.php'; ?>
+        $servername = "localhost";
+        $username = "root";
+        $password = "root";
+        $dbname = "todo_application";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        // echo "Connected successfully";
+
+        // Get table data
+        $sql = "SELECT id, title, description, status FROM tasks";
+        $result = $conn->query($sql);
+
+        // Get column names
+        $tablecolumns = "SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_SCHEMA = 'todo_application' AND TABLE_NAME = 'tasks'";
+        $columns = $conn->query($tablecolumns);
+
+        // Defining edit button
+        $edit = "Edit";
+
+        $conn->close();
+        ?>
+
+
+        <table class="tableContainer">
+
+            <tr>
+
+                <!-- <?php
+                        // Display column names
+                        // foreach ($columns as $column) {
+                        //     echo ("<th class='tableHeader'>");
+                        //     echo ($column["COLUMN_NAME"] . " ");
+                        //     echo ("</th>");
+                        // }
+                        ?> -->
+                <th class='tableHeader'>Title</th>
+                <th class='tableHeader tableDescription'>Description</th>
+                <th class='tableHeader'>Status</th>
+                <th></th>
+
+            </tr>
+
+            <?php
+            // Display tasks in rows
+            foreach ($result as $task) {
+                echo ("<tr>");
+                echo ("<td class='tableItem'>{$task["title"]}</td>");
+                echo ("<td class='tableItem'>{$task["description"]}</td>");
+                echo ("<td class='tableItem'>{$task["status"]}</td>");
+                // foreach ($task as $taskColumn) {
+                //     echo ("<td class='tableItem'>{$taskColumn}</td>");
+                // }
+                echo ("<td class='tableItem'><button class='tableButton' onclick='editTask(" . $task['id'] . ")'>{$edit}</button></td></tr>");
+            }
+            ?>
+
+        </table>
+
+    </main>
+
+    <script type="text/javascript">
+        function addNewTask() {
+            console.log("add new task function");
+            location.href = "new-task.php";
+        }
+
+        function editTask(id) {
+            location.href = "http://localhost:8888/lab1/edit-task.php?id=" + id;
+        }
+    </script>
 </body>
 
 </html>

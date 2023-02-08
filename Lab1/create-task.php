@@ -1,22 +1,42 @@
 <?php
-include 'connecttodatabase';
+include "connecttodatabase.php";
 
-// Get data: tasks
+// Get data: tasks from table
 $title = $_POST["title"];
 $description = $_POST["description"];
 
-// Send post data to databank
+// Send post data to DB
 $query = "INSERT INTO tasks (task, description) VALUES (?, ?)"; // Create the query (command) for the database
 $stmt = $conn->prepare($query); // Prepare the query for execution
-$stmt->bind_param("ss", $title, $description); // Add tasks values to database list query
+$stmt->bind_param("ss", $make, $model); // Add values to query
+
 $success = $stmt->execute(); // Execute command / query
 
-
-// If succesfully safed, redirect user to index.php
+// Redirect user to index.php
 if($success){
     header("location: index.php");
 }
 else{
-    echo "Error saving the task";
+    echo "Error";
 }
 ?>
+ 
+<?php
+    // Get table data
+    $sql = "SELECT id, title, description, status FROM tasks";
+    $result = $conn->query($sql);
+
+    $title = $_POST["title"];
+    $description = $_POST["description"];
+    $status = $_POST["status"];
+
+    $sql = "INSERT INTO tasks (id, title, description, status) VALUES (NULL, '$title', '$description', '$status')";
+
+    //Bring User back to Index.php
+    if ($conn->query($sql) === TRUE) {
+        header("Location:index.php");
+    } else {
+        echo "<br> Error: " . $sql . "<br>" . $conn->error;
+    }
+
+    ?>

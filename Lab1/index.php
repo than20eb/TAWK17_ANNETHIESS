@@ -1,5 +1,4 @@
 <?php
-
 $servername = "localhost";
 $username = "root";
 $password = "root";
@@ -11,11 +10,9 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
 
 $sql = "SELECT * FROM tasks";
 $result = $conn->query($sql);
-
 ?>
 
 
@@ -32,21 +29,24 @@ $result = $conn->query($sql);
 </head>
 
 <body>
-  <h1>Lab Assignment 1</h1>
+  <div class="Task-container">
+    <h1>My Weekly Tasks</h1>
+    <ul>
+      <?php
+      if ($result->num_rows > 0) {
+        // output data of each row
+        while ($row = mysqli_fetch_assoc($result)) {
+          echo "<p>Task Nr " . $row["id"] . "</p>";
+          echo "<p> title: " . $row["title"] . " description: " . $row["description"] . "</p>";
+        }
+      } else {
+        echo "0 to dos results";
+      }
+      mysqli_close($conn);
+      ?>
 
- <?php
-if ($result -> num_rows > 0) {
-  // output data of each row
-  while ($row = mysqli_fetch_assoc($result)) {
-    echo "id: " . $row["id"];
-    echo "<p> title: ". $row["title"]. " description: ". $row["description"]. "</p>";
-  }
-} else {
-  echo "0 to dos results";
-}
-
-mysqli_close($conn);
- ?>
+    </ul>
+      <?php include 'new-task.php'; ?>
 </body>
 
 </html>

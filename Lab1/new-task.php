@@ -1,5 +1,9 @@
+<?php include 'connecttodatabase'?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,17 +11,21 @@
     <title>New Task</title>
     <link rel="stylesheet" href="lab1.css">
 </head>
+
 <body>
-    <h1>Create a new task</h1>
-    
-    <form action="create-task.php" method="post">
-        <label>Task:</label><br>
-        <input type="text" name="title" value =""> <br>
+    <div class="create-task-container">
+        <h2>Create a new task</h2>
 
-        <input type="text" name="description" value=""> <br>
+        <form action="create-task.php" method="post">
+            <p>Task:</p> <input type="text" name="title" value=""> <br>
 
-        <input type="submit" value="Save">
-    </form>
+            <p>Description:</p> <input type="text" name="description" value=""> <br>
+
+            <input type="submit" value="Save">
+        </form>
+    </div>
+
     <script src="script.js"></script>
 </body>
+
 </html>

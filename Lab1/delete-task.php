@@ -1,20 +1,7 @@
 <?php
-// Create connection to Database
-$conn = new mysqli("localhost", "todo_application", "", "tasks");
-// Check up: If connection to Database is missing
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+include 'connecttodatabase';
 
-
-
-
-
-
-
-
-
-// Get data for tasks
+// Get tasks from databank
 $id = $_POST["id"];
 
 // Send changes in data to databank to store there

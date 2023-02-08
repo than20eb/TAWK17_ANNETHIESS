@@ -80,13 +80,13 @@
         }
 
         function editTask(id) {
-            location.href = "http://localhost:8888/lab1/edit-task.php?id=" + id;
+            location.href = "http://localhost:8888/lab1/edit-task.php?id=";
         }
     </script>
 
 <!-----------------------------------Animated Background------------------------------------------------------------------------>
-    <script src="three.r134.min.js"></script>
-<script src="vanta.cells.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"></script>
 <script>
 VANTA.CELLS({
   el: "#bodycontainer",

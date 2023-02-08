@@ -1,3 +1,16 @@
+<?php
+include "connecttodatabase.php";
+
+// prepare and bind
+$stmt = $conn->prepare("SELECT * FROM tasks WHERE id=?");
+$stmt->bind_param("?", $_GET["id"]);
+$stmt->execute();
+
+$result = $stmt->get_result();
+$task = $result->fetch_assoc();
+?>
+<!--------------------------------------------------------HTML --->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,85 +18,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <title>Document</title>
+    <title>Tasks</title>
+    <link rel="stylesheet" href="lab1.css">
 </head>
 
 <body>
-    <header>
-        <h1>Edit Task</h1>
-    </header>
-    <nav>
-        <button class="newTaskButton" onclick="addNewTask()">Back</button>
-    </nav>
-    <main>
-        <div class="divContainer">
+    <div class="container">
+    <h1>My task</h1>
 
-        
-            <?php
-            include "connecttodatabase.php";
+    <form action="update-task.php" method="post">
+        <p>
+            <b>Title: </b>
+            <input type="text" name="title" value="<?= $task["title"] ?>">
+        </p>
 
-            $sql = "SELECT title, description, status FROM tasks WHERE ID=?";
-            $stmt = $conn->prepare($sql);
-            $stmt->bind_param("i", $_GET["id"]);
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $field = $result->fetch_assoc();
-            $conn->close();
-            ?>
-
-            <?php
-
-            echo ("<form name='updateForm' action='update-task.php?id=" . $_GET['id'] . "' onsubmit='return validateForm()' method='post'>");
-            ?>
-            <label for="title">Title:</label>
-            <?php
-            echo ("<input id='title' type='text' name='title' value='{$field['title']}'><br>");
-            ?>
-            <label for="description">Description:</label>
-            <?php
-            echo ("<input id='description' type='text' name='description' value='{$field['description']}'><br>");
-            ?>
-            <label for="status">Status:</label>
-            <?php
-            echo ("<input id='status' type='text' name='status' value='{$field['status']}'><br>");
-            ?>
-            <input type="submit" value="Update" class="submitButton">
-            </form>
-            <?php
-            echo ("<form name='deleteForm' action='delete-task.php?id=" . $_GET['id'] . "' method='post'>");
-            echo ("<input type='hidden' name='title' value='{$field['title']}'>");
-            echo ("<input type='hidden' name='description' value='{$field['description']}'>");
-            echo ("<input type='hidden' name='status' value='{$field['status']}'>");
-            ?>
-            <input type="submit" value="Delete" class="submitButton">
-            </form>
+        <p>
+            <b>Description: </b>
+            <input type="text" name="description" value="<?= $task["description"] ?>">
+        </p>
+        <div class="status-tasks">
+            <input type="radio" name="status" value="0">
+            <p>Not Complete</p>
+            <input type="radio" name="status" value="1">
+            <p>Complete</p>
         </div>
-    </main>
-    <script type="text/javascript">
-        function validateForm() {
-            let x = document.forms["updateForm"]["title"].value;
-            if (x == "") {
-                alert("Title must be filled out");
-                return false;
-            }
-            let y = document.forms["updateForm"]["description"].value;
-            if (y == "") {
-                alert("You must add a description");
-                return false;
-            }
-            let z = document.forms["updateForm"]["status"].value;
-            if (z != "1" && z != "0") {
-                alert("Status can only be 0 or 1");
-                return false;
-            }
-        }
+        <input type="hidden" name="id" value="<?= $task["id"] ?>">
+        <input type="submit" value="Update task">
+    </form>
 
-        function addNewTask() {
-            console.log("add new task function");
-            location.href = "index.php";
-        }
-    </script>
+    <form action="delete-task.php" method="post">
+        <input type="hidden" name="id" value="<?= $task["id"] ?>">
+        <input type="submit" value="Delete task">
+    </form>
+
+    <script src="lab1.js"></script>
+</div>
 </body>
 
 </html>

@@ -1,12 +1,15 @@
+<?php include 'connecttodatabase'?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="lab1.css">
-  <title>Document</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Task</title>
+    <link rel="stylesheet" href="lab1.css">
 </head>
 
 <body>
@@ -26,6 +29,27 @@
 
       </form>
     </div>
+  <main>
+
+  <script type="text/javascript">
+    function validateForm() {
+      let x = document.forms["taskForm"]["title"].value;
+      if (x == "") {
+        alert("Title must be filled out");
+        return false;
+      }
+      let y = document.forms["taskForm"]["description"].value;
+      if (y == "") {
+        alert("You must add a description");
+        return false;
+      }
+      let z = document.forms["taskForm"]["status"].value;
+      if (z != "1" && z != "0") {
+        alert("Status can only be 0 or 1");
+        return false;
+      }
+    }
+    </script>
   </main>
 
 

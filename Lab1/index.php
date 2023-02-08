@@ -10,6 +10,7 @@
 </head>
 
 <body>
+  <div id="bodycontainer" >
     <header>
         <h1>Tasks</h1>
     </header>
@@ -82,6 +83,26 @@
             location.href = "http://localhost:8888/lab1/edit-task.php?id=" + id;
         }
     </script>
+
+<!-----------------------------------Animated Background------------------------------------------------------------------------>
+    <script src="three.r134.min.js"></script>
+<script src="vanta.cells.min.js"></script>
+<script>
+VANTA.CELLS({
+  el: "#bodycontainer",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  color1: 0xff008e,
+  color2: 0xf2af35,
+  size: 1.70,
+  speed: 1.10
+})
+</script>
+</div>
 </body>
 
 </html>

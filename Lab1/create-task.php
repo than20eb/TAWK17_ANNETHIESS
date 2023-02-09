@@ -41,3 +41,14 @@ else{
     }
 
     ?>
+
+<script type="text/javascript">
+        function addNewTask() {
+            console.log("add new task function");
+            location.href = "new-task.php";
+        }
+
+        function editTask(id) {
+            location.href = "http://localhost:8888/lab1/edit-task.php?id=" + id;
+        }
+    </script>

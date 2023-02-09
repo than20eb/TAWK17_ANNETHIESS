@@ -13,10 +13,11 @@
   <div id="bodycontainer" >
     <header>
         <h1>Tasks</h1>
-    </header>
-    <nav>
+        <nav>
         <button class="newTaskButton" onclick="addNewTask()">+</button>
     </nav>
+    </header>
+    
     <main>
         <?php
         include "connecttodatabase.php";
@@ -72,17 +73,6 @@
         </table>
 
     </main>
-
-    <script type="text/javascript">
-        function addNewTask() {
-            console.log("add new task function");
-            location.href = "new-task.php";
-        }
-
-        function editTask(id) {
-            location.href = "http://localhost:8888/lab1/edit-task.php?id=" + id;
-        }
-    </script>
 
 <!-----------------------------------Animated Background------------------------------------------------------------------------>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>

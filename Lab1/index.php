@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="lab1.css">
-    <title>Document</title>
+    <title>Task Overview</title>
 </head>
 
 <body>
@@ -73,6 +73,18 @@
         </table>
 
     </main>
+
+<!-----------------------------------Add New Task------------------------------------------------------------------------>
+    <script type="text/javascript">
+        function addNewTask() {
+            console.log("add new task function");
+            location.href = "new-task.php";
+        }
+
+        function editTask(id) {
+            location.href = "http://localhost:8888/lab1/edit-task.php?id=" + id;
+        }
+    </script>
 
 <!-----------------------------------Animated Background------------------------------------------------------------------------>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>

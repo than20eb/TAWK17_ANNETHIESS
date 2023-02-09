@@ -15,17 +15,14 @@
   <header>
     <h1>New Task</h1>
   </header>
-  <nav>
-    <button class="newTaskButton" onclick="addNewTask()">Back</button>
-  </nav>
   <main>
-    <div class="divContainer">
+    <div class="newTaskContainer">
       <form name="taskForm" action="create-task.php" onsubmit="return validateForm()" method="post">
         <label for="title">Title:</label><input id="title" type="text" name="title" class=""><br>
         <label for="description">Description:</label><input id="description" type="text" name="description"><br>
         <label for="status">Status:</label> <input id="status" type="number" name="status" value="0"><br>
         <input type="submit" class="submitButton">
-
+        <button class="newTaskButton" onclick="addNewTask()">Back</button>
       </form>
     </div>
   </main>

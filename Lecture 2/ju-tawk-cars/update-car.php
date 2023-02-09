@@ -1,13 +1,6 @@
 <?php
 
-// Connect to DB
-// Create connection
-$conn = new mysqli("localhost", "todo_applications", "", "tasks");
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
+require_once __DIR__ . "/database.php";
 
 // Get post data
 $id = $_POST["id"];
@@ -16,7 +9,7 @@ $model = $_POST["model"];
 
 
 // Send post data to DB
-$query = "UPDATE tasks SET make = ?, model = ? WHERE id = ?";
+$query = "UPDATE cars SET make = ?, model = ? WHERE id = ?";
 $stmt = $conn->prepare($query);
 $stmt->bind_param("ssi", $make, $model, $id);
 

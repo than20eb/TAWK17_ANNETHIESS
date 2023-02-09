@@ -75,7 +75,7 @@ nav {
 
 .newTaskButton {
   cursor: pointer;
-  font-size: 32px;
+  font-size: 18px;
   display: inline;
   border-radius: 8px;
   border: 1px;
@@ -103,24 +103,25 @@ label {
   display: inline;
   border-radius: 8px;
   border: none;
-  padding: 5px;
+  padding: 1px;
   background-color: rgb(222, 0, 137);
   color: white;
-  margin-top: 2vw;
+  margin-top: 3vw;
+  margin-left: 6vw;
   padding: 2vw;
-  box-sizing: border-box;
+  box-sizing: border-box;x
 }
 
-.divContainer {
-  margin: 5vw;
-  margin-top: 0;
+.newTaskContainer {
+  margin: auto;
+  margin-top: 10vh;
+  margin-left: 35vw;
 }
 
   div {
     margin: auto;
     width: 50%;
     padding: 10px;
-    background-color: rgb(255, 185, 35), 50%;
   }
 
   #new-task {

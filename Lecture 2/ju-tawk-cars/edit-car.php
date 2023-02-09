@@ -1,11 +1,7 @@
 <?php
 
 // Create connection
-$conn = new mysqli("localhost", "root", "", "ju_cars");
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once __DIR__ . "/database.php";
 
 // prepare and bind
 $stmt = $conn->prepare("SELECT * FROM cars WHERE id=?");
@@ -15,6 +11,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 $car = $result->fetch_assoc();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,6 +27,8 @@ $car = $result->fetch_assoc();
 
 <body>
     <h1>My car</h1>
+
+    
 
     <form action="update-car.php" method="post">
         <p>

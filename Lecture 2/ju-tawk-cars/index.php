@@ -1,11 +1,6 @@
 <?php // http://localhost/ju-tawk-cars
 
-// Create connection
-$conn = new mysqli("localhost", "root", "", "ju_cars");
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+require_once __DIR__ . "/database.php";
 
 $sql = "SELECT * FROM cars";
 $result = $conn->query($sql);
@@ -26,13 +21,12 @@ $result = $conn->query($sql);
 <body>
     <h1>Cars</h1>
 
-
     <ul>
 
         <?php
         // output data of each row
         while ($row = $result->fetch_assoc()) {
-            echo "<li><a href='edit-car.php?id={$row["id"]}'>{$row["make"]} {$row["model"]}</a></li>";
+            echo "<li>  <a href='edit-car.php?id={$row["id"]}'>{$row["make"]} {$row["model"]}</a></li>";
         }
         ?>
 

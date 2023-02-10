@@ -1,4 +1,4 @@
-<?php include 'connecttodatabase.php'?>
+<?php require_once __DIR__ . "/connecttodatabase.php";?>
 </html>
 <!DOCTYPE html>
 <html lang="en">

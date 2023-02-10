@@ -1,5 +1,5 @@
 <?php
-include "connecttodatabase.php";
+require_once __DIR__ . "/connecttodatabase.php";
 
 // Get data: tasks from table
 $title = $_POST["title"];

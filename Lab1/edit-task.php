@@ -1,6 +1,5 @@
 <?php
-include "connecttodatabase.php";
-
+require_once __DIR__ . "/connecttodatabase.php";
 // prepare and bind
 $stmt = $conn->prepare("SELECT * FROM tasks WHERE id=?");
 $stmt->bind_param("i", $_GET["id"]);

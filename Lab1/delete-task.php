@@ -1,5 +1,5 @@
 <?php
-include "connecttodatabase.php";
+require_once __DIR__ . "/connecttodatabase.php";
 
 // Get tasks from databank
 $id = $_POST["id"];

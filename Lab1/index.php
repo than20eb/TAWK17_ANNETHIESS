@@ -10,14 +10,13 @@
 </head>
 
 <body>
+<header>
+    <h1>My Task</h1>
+  </header>
     <div id="bodycontainer">
-        <header>
-            <h1>Tasks</h1>
             <nav>
-                <button class="newTaskButton" onclick="addNewTask()">+</button>
+                <button class="newTaskPlusButton" onclick="addNewTask()"> + </button>
             </nav>
-        </header>
-
         <main>
             <?php
             include "connecttodatabase.php";
@@ -38,15 +37,14 @@
                 while($row = $result->fetch_assoc()) {
                   $checked = "";
                   if ($row["status"]==="1"){
-                    $checked = "&#9989";
+                    $checked = "&#9989     ";
                   }
                   else{
-                    $checked = "&#10062";
+                    $checked = "&#10062     ";
                   }
                   echo "<a href='edit-task.php?id={$row["id"]}'> 
                   <li class='edit-task-li'> 
                     {$checked} {$row ["title"]} 
-                    
                   </li> </a>"; 
                 }
               } 
@@ -66,13 +64,6 @@
                 location.href = "http://localhost:8888/lab1/edit-task.php?id=" + id;
             }
         </script>
-
-
-
-
-
-
-
         <!-----------------------------------Animated Background------------------------------------------------------------------------>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"></script>
@@ -82,8 +73,8 @@
                 mouseControls: true,
                 touchControls: true,
                 gyroControls: false,
-                minHeight: 200.00,
-                minWidth: 200.00,
+                minHeight: 815.00,
+                minWidth: 400.00,
                 scale: 1.00,
                 color1: 0xff008e,
                 color2: 0xf2af35,

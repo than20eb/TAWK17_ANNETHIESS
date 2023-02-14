@@ -33,9 +33,11 @@ h2 {
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
 }
-header{
-  text-align:center;
+
+header {
+  text-align: center;
 }
+
 .tableContainer {
   background-color: white;
   border-radius: 1%;
@@ -73,18 +75,88 @@ nav {
   display: inline;
 }
 
-.newTaskButton {
-  cursor: pointer;
-  font-size: 18px;
-  display: inline;
-  border-radius: 8px;
-  border: 1px;
-  padding: 1vw 1.4vw 1vw 1.4vw;
-  background-color: rgb(255, 157, 0);
-  color: white;
-  margin: 0vw 1vw 1vw 1vw;
+
+.newTaskPlusButton {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  border: 0.1em solid #FFFFFF;
+  margin: 0 0.4em 0.4em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900px;
+  font-size: large;
+  color: #4f4b01;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.newTaskPlusButton:hover {
+  color: #965000;
+  background-color: #d0ff00;
+}
+
+.backbutton{
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  border: 0.1em solid #FFFFFF;
+  margin: 0 0.4em 0.4em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900px;
+  font-size: large;
+  color: #4f4b01;
+  text-align: center;
+  transition: all 0.2s;
+}
+.backbutton:hover{
+  color: #965000;
+  background-color: #d0ff00;
+}
+.submitbutton {
+  display: inline-block;
+  padding: 0.4em 0.8em;
+  border: 0.1em solid #FFFFFF;
+  margin: 0 0.4em 0.4em 0;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 900px;
+  font-size: large;
+  color: #4f4b01;
+  text-align: center;
+  transition: all 0.2s;
+}
+.submitbutton:hover{
+  color: #965000;
+  background-color: #d0ff00;
+}
+.inputfield {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
   box-sizing: border-box;
 }
+.inputfieldedittask {
+  width: 20%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+.edit-task-li{
+  font-size: 2vw;
+  color: #FFFFFF;
+  position: relative;
+  text-decoration: none;    
+}
+a:edit-task-li{
+  text-decoration: none;
+}
+
 
 label {
   font-weight: 700;
@@ -97,41 +169,29 @@ label {
   text-align: left;
 }
 
-.submitButton {
-  cursor: pointer;
-  font-size: 16px;
-  display: inline;
-  border-radius: 8px;
-  border: none;
-  padding: 1px;
-  background-color: rgb(222, 0, 137);
-  color: white;
-  margin-top: 3vw;
-  margin-left: 6vw;
-  padding: 2vw;
-  box-sizing: border-box;
-}
-
 .newTaskContainer {
   margin: auto;
   margin-top: 10vh;
   margin-left: 35vw;
 }
+.edit-tasks{
+  display: flex;
+  align-content:flex-start;
+}
+div {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
 
-  div {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-  }
+#new-task {
+  background-color: hsl(0, 0%, 82%);
+  margin: 20%;
+  border-radius: 10%;
+}
 
-  #new-task {
-    background-color: hsl(0, 0%, 42%);
-    margin: 20%;
-    border-radius: 10%;
-  }
-
-  .create-task-container {
-    background-color: rgba(74, 77, 69, 0.5);
-    border-radius: 2%;
-    align-items: center;
-  }
+.create-task-container {
+  background-color: rgba(74, 77, 69, 0.5);
+  border-radius: 2%;
+  align-items: center;
+}

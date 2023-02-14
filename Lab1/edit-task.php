@@ -22,54 +22,70 @@ $task = $result->fetch_assoc();
 </head>
 
 <body>
-    <div class="container">
-    <h1>My task</h1>
+    <h1>Edit Task</h1>
+    <div id="bodycontainer">
 
-    <form action="update-task.php" method="post">
-        <p>
-            <b>Title: </b>
-            <input type="text" name="title" value="<?= $task["title"] ?>">
-        </p>
+        <form action="update-task.php" method="post">
+            <p>
+                <b>Title: </b>
+                <input type="text" name="title" class="inputfieldedittask" value="<?= $task["title"] ?>"> <!---Fills in Task Name in Input ´Field ---->
+            </p>
 
-        <p>
-            <b>Description: </b>
-            <input type="text" name="description" value="<?= $task["description"] ?>">
-        </p>
-        <div class="status-tasks">
-            <input type="radio" name="status" value="0">
-            <p>Not Complete</p>
-            <input type="radio" name="status" value="1">
-            <p>Complete</p>
-        </div>
-        <input type="hidden" name="id" value="<?= $task["id"] ?>">
-        <input type="submit" value="Update task">
-    </form>
+            <p>
+                <b>Description: </b>
+                <input type="text" name="description" class="inputfieldedittask" value="<?= $task["description"] ?>"> <!---Fills in Task Name in Input ´Field ---->
+            </p>
+            <div class="edit-tasks">
+                <div>
+                    <input type="radio" name="status" value="0" class="inputfieldedittask">
+                    <p>Not Complete</p>
+                </div>
+                <div>
+                    <input type="radio" name="status" value="1" class="inputfieldedittask">
+                    <p>Complete</p>
+                </div>
+                </div>
+                <input type="hidden" name="id" value="<?= $task["id"] ?>">
 
-    <form action="delete-task.php" method="post">
-        <input type="hidden" name="id" value="<?= $task["id"] ?>">
-        <input type="submit" value="Delete task">
-    </form>
+                <button class="backbutton" type="submit">Update</button>
+        </form>
+
+        <form action="delete-task.php" method="post">
+            <input type="hidden" name="id" value="<?= $task["id"] ?>">
+            <button type="submit" class="backbutton">Delete</button>
+        </form>
+    
+
+
+
+
+
+
+
+
+
+
 
     <!-----------------------------------Animated Background------------------------------------------------------------------------>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"></script>
-<script>
-VANTA.CELLS({
-  el: "#bodycontainer",
-  mouseControls: true,
-  touchControls: true,
-  gyroControls: false,
-  minHeight: 200.00,
-  minWidth: 200.00,
-  scale: 1.00,
-  color1: 0xff008e,
-  color2: 0xf2af35,
-  size: 1.70,
-  speed: 1.10
-})
-</script>
-</div>
-</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"></script>
+    <script>
+        VANTA.CELLS({
+            el: "#bodycontainer",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 815.00,
+            minWidth: 400.00,
+            scale: 1.00,
+            color1: 0xff008e,
+            color2: 0xf2af35,
+            size: 1.70,
+            speed: 1.10
+        })
+    </script>
+    </div>
+    </div>
 </body>
 
 </html>

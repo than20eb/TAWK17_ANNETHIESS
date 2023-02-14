@@ -17,6 +17,7 @@ $title = $_POST["title"];
 $description = $_POST["description"];
 $status = $_POST["status"];
 
+
 // $sql = "UPDATE tasks SET title='$title', description='$description', status='$status' WHERE ID='" . $_GET['id'] . "'";
 $sql = "UPDATE tasks SET title=?, description=?, status=? WHERE id = ?";
 $stmt = $conn->prepare($sql);
@@ -30,12 +31,6 @@ if ($success){
 else{
     echo "error";
 }
-// if ($stmt->execute() === TRUE) {
-//     header("Location:index.php");
-// } else {
-//     echo "Error updating record: " . $conn->error;
-// }
-// $conn->close();
 ?>
 
 

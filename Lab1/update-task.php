@@ -1,4 +1,6 @@
 <?php
+require_once __DIR__ . "/connecttodatabase.php";
+
 $servername = "localhost";
 $username = "root";
 $password = "root";
@@ -14,20 +16,33 @@ if ($conn->connect_error) {
 $title = $_POST["title"];
 $description = $_POST["description"];
 $status = $_POST["status"];
-// $sql = "UPDATE tasks SET title='$title', description='$description', status='$status' WHERE ID='" . $_GET['id'] . "'";
-$sql = "UPDATE tasks SET title=?, description=?, status=? WHERE ID=?";
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("sssi", $title, $description, $status, $_GET["id"]);
-$stmt->execute();
 
-if ($stmt->execute() === TRUE) {
-    header("Location:index.php");
-} else {
-    echo "Error updating record: " . $conn->error;
+// $sql = "UPDATE tasks SET title='$title', description='$description', status='$status' WHERE ID='" . $_GET['id'] . "'";
+$sql = "UPDATE tasks SET title=?, description=?, status=? WHERE id = ?";
+$stmt = $conn->prepare($sql);
+$stmt->bind_param("ssii", $title, $description, $status, $id);
+$success = $stmt->execute();
+
+
+if ($success){
+    header ("location: index.php");
 }
-$conn->close();
+else{
+    echo "error";
+}
+// if ($stmt->execute() === TRUE) {
+//     header("Location:index.php");
+// } else {
+//     echo "Error updating record: " . $conn->error;
+// }
+// $conn->close();
 ?>
 
+
+
+
+
+ <!--- User informed ----->
 <script type="text/javascript">
     function validateForm() {
         let x = document.forms["taskForm"]["title"].value;

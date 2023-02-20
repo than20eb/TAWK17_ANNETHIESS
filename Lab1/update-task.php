@@ -16,15 +16,17 @@ if ($conn->connect_error) {
 $title = $_POST["title"];
 $description = $_POST["description"];
 $status = $_POST["status"];
+$id = $_POST["id"];
 
 
-// $sql = "UPDATE tasks SET title='$title', description='$description', status='$status' WHERE ID='" . $_GET['id'] . "'";
+//$sql = "UPDATE tasks SET title='$title', description='$description', status='$status' WHERE ID='" . $_GET['id'] . "'";
 $sql = "UPDATE tasks SET title=?, description=?, status=? WHERE id = ?";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param("ssii", $title, $description, $status, $id);
 $success = $stmt->execute();
 
 
+// var_dump($title, $id)
 if ($success){
     header ("location: index.php");
 }

@@ -42,7 +42,7 @@
                   else{
                     $checked = "&#10062     ";
                   }
-                  echo "<a href='edit-task.php?id={$row["id"]}'> 
+                  echo "<a class='edit-task-link' href='edit-task.php?id={$row["id"]}'> 
                   <li class='edit-task-li'> 
                     {$checked} {$row ["title"]} 
                   </li> </a>"; 
@@ -64,6 +64,7 @@
                 location.href = "http://localhost:8888/lab1/edit-task.php?id=" + id;
             }
         </script>
+
         <!-----------------------------------Animated Background------------------------------------------------------------------------>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.cells.min.js"></script>
